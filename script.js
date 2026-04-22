@@ -20,7 +20,8 @@ restart.addEventListener("click", function () {
 button.addEventListener("click", function () {
   const guess = Number(input.value);
   if (guess === 0 || guess < 1 || guess > 20) {
-    alert("Please enter a number between 1 and 20");
+    document.querySelector(".hint").textContent = "Please enter a number between 1 and 20!";
+    input.value = "";
   } else if (guess === number) {
     document.querySelector(".number").textContent = guess;
     document.querySelector(".hint").textContent =
