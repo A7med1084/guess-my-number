@@ -4,11 +4,12 @@ const button = document.querySelector(".btn");
 const input = document.querySelector(".num");
 const restart = document.querySelector(".restart");
 
-let number = Math.trunc(Math.random() * 20) + 1;
+let number = Math.trunc(Math.random() * 100) + 1;
 let count = 20;
+let highscore = 0;
 
 restart.addEventListener("click", function () {
-  number = Math.trunc(Math.random() * 20) + 1;
+  number = Math.trunc(Math.random() * 100) + 1;
   count = 20;
   button.disabled = false;
   document.querySelector(".hint").textContent = "Start guessing...";
@@ -19,14 +20,17 @@ restart.addEventListener("click", function () {
 });
 button.addEventListener("click", function () {
   const guess = Number(input.value);
-  if (guess === 0 || guess < 1 || guess > 20) {
-    document.querySelector(".hint").textContent = "Please enter a number between 1 and 20!";
+  if (guess === 0 || guess < 1 || guess > 100) {
+    document.querySelector(".hint").textContent = "Please enter a number between 1 and 100!";
     input.value = "";
   } else if (guess === number) {
     document.querySelector(".number").textContent = guess;
     document.querySelector(".hint").textContent =
       "Congratulations! You guessed the number!";
-    document.querySelector(".highscore").textContent = count;
+    if (document.querySelector(".highscore").textContent < count) {
+      highscore = count;
+      document.querySelector(".highscore").textContent = highscore;
+    }
     document.querySelector("body").style.backgroundColor = "#60b347";
     button.disabled = true;
   } else if (guess > number) {
