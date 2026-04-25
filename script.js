@@ -33,6 +33,7 @@ button.addEventListener("click", function () {
     }
     document.querySelector("body").style.backgroundColor = "#60b347";
     button.disabled = true;
+    button.style.cursor = "not-allowed";
   } else if (guess > number) {
     document.querySelector(".hint").textContent = "Too high!";
     count--;
@@ -40,6 +41,7 @@ button.addEventListener("click", function () {
       document.querySelector(".hint").textContent =
         "Game over! You've used all your attempts.";
       button.disabled = true;
+      button.style.cursor = "not-allowed";
     }
     document.querySelector(".score").textContent = count;
   } else if (guess < number) {
@@ -49,6 +51,7 @@ button.addEventListener("click", function () {
       document.querySelector(".hint").textContent =
         "Game over! You've used all your attempts.";
       button.disabled = true;
+      button.style.cursor = "not-allowed";
     }
     document.querySelector(".score").textContent = count;
   }
