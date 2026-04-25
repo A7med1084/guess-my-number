@@ -34,6 +34,11 @@ header .restart:active {
 header p {
   font-size: 12px;
 }
+@media (max-width: 500px) {
+  header p {
+    font-size: 9px;
+  }
+}
 h1 {
   text-align: center;
   margin: 35px auto;
@@ -66,19 +71,10 @@ h1 {
 }
 main {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   justify-content: space-evenly;
-  margin: 60px 50px 60px 50px;
+  margin: 50px;
   gap: 30px;
-}
-@media (max-width: 700px) {
-  main {
-    height: 600px;
-    display: block;
-  }
-  main .right {
-    margin-top: 60px;
-  }
 }
 main .myform {
   display: flex;
@@ -86,7 +82,7 @@ main .myform {
   align-items: center;
   width: 230px;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 main .myform .num {
   background-color: transparent;
