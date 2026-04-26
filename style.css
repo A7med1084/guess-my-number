@@ -4,6 +4,23 @@
   text-decoration: none;
   list-style: none;
 }
+/* main button */
+.button {
+  font-size: 17px;
+  font-family: inherit;
+  height: 50px;
+  width: 150px;
+  border: none;
+  background-color: #ffff;
+  cursor: pointer;
+}
+.button:active {
+  background-color: #ffffffd5;
+  height: 45px;
+  width: 145px;
+  margin: 2.5px;
+  font-size: 16px;
+}
 body {
   background-color: #232323;
   font-family: "Press Start 2P", cursive;
@@ -15,21 +32,6 @@ header {
   justify-content: space-between;
   margin: 20px;
   min-height: 50px;
-}
-header .restart {
-  font-size: 17px;
-  font-family: inherit;
-  height: 50px;
-  width: 150px;
-  border: none;
-  background-color: #ffff;
-  cursor: pointer;
-}
-header .restart:active {
-  background-color: #ffffffd5;
-  height: 45px;
-  width: 145px;
-  margin: 2.5px 0 0 2.5px;
 }
 header p {
   font-size: 12px;
@@ -95,21 +97,6 @@ main .myform .num {
   font-family: inherit;
   text-align: center;
   padding: 0 15px;
-}
-main .myform .btn {
-  font-size: 17px;
-  font-family: inherit;
-  height: 50px;
-  width: 150px;
-  border: none;
-  background-color: #ffff;
-  cursor: pointer;
-}
-main .myform .btn:active {
-  background-color: #ffffffd5;
-  height: 45px;
-  width: 145px;
-  margin-top: 2.5px;
 }
 .right {
   display: flex;
