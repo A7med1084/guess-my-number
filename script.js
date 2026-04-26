@@ -43,6 +43,7 @@ restart.addEventListener("click", function () {
 });
 // clicked button
 button.addEventListener("click", function () {
+  input.focus();
   const guess = Number(input.value);
   if (!guess || guess < 1 || guess > 100) {
     hint.textContent = "Please enter a number between 1 and 100!";
