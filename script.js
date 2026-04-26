@@ -1,58 +1,73 @@
 "use strict";
 
+// select elements
 const button = document.querySelector(".btn");
 const input = document.querySelector(".num");
 const restart = document.querySelector(".restart");
+const hint = document.querySelector(".hint");
+const score = document.querySelector(".score");
+const body = document.querySelector("body");
+const correctNumber = document.querySelector(".number");
+const bestScore = document.querySelector(".highscore");
 
+// variables
 let number = Math.trunc(Math.random() * 100) + 1;
 let count = 20;
 let highscore = 0;
 
+input.focus();
+
+// end game
+const endGame = function () {
+  button.disabled = true;
+  input.disabled = true;
+  button.style.cursor = "not-allowed";
+};
+// reset input
+const resetInput = function () {
+  input.disabled = false;
+  input.value = "";
+  input.focus();
+};
+// restart button
 restart.addEventListener("click", function () {
   number = Math.trunc(Math.random() * 100) + 1;
   count = 20;
+  resetInput();
   button.disabled = false;
-  document.querySelector(".hint").textContent = "Start guessing...";
-  document.querySelector(".score").textContent = count;
-  document.querySelector("body").style.backgroundColor = "#222";
-  document.querySelector(".number").textContent = "?";
-  input.value = "";
+  button.style.cursor = "pointer";
+  hint.textContent = "Start guessing...";
+  score.textContent = count;
+  body.style.backgroundColor = "#222";
+  correctNumber.textContent = "?";
 });
+// clicked button
 button.addEventListener("click", function () {
   const guess = Number(input.value);
-  if (guess === 0 || guess < 1 || guess > 100) {
-    document.querySelector(".hint").textContent = "Please enter a number between 1 and 100!";
+  if (!guess || guess < 1 || guess > 100) {
+    hint.textContent = "Please enter a number between 1 and 100!";
     input.value = "";
   } else if (guess === number) {
-    document.querySelector(".number").textContent = guess;
-    document.querySelector(".hint").textContent =
-      "Congratulations! You guessed the number!";
-    if (document.querySelector(".highscore").textContent < count) {
+    correctNumber.textContent = guess;
+    hint.textContent = "Congratulations! You guessed the number!";
+    if (highscore < count) {
       highscore = count;
-      document.querySelector(".highscore").textContent = highscore;
+      bestScore.textContent = highscore;
     }
-    document.querySelector("body").style.backgroundColor = "#60b347";
-    button.disabled = true;
-    button.style.cursor = "not-allowed";
-  } else if (guess > number) {
-    document.querySelector(".hint").textContent = "Too high!";
+    body.style.backgroundColor = "#60b347";
+    endGame();
+  } else {
+    hint.textContent = guess > number ? "Too high!" : "Too low!";
     count--;
-    if (count === 0) {
-      document.querySelector(".hint").textContent =
-        "Game over! You've used all your attempts.";
-      button.disabled = true;
-      button.style.cursor = "not-allowed";
+    if (count <= 0) {
+      hint.textContent = "Game over! You've used all your attempts.";
+      // Disable the button to prevent further guesses
+      input.value = "";
+      endGame();
+      body.style.backgroundColor = "red";
+      correctNumber.textContent = number;
     }
-    document.querySelector(".score").textContent = count;
-  } else if (guess < number) {
-    document.querySelector(".hint").textContent = "Too low!";
-    count--;
-    if (count === 0) {
-      document.querySelector(".hint").textContent =
-        "Game over! You've used all your attempts.";
-      button.disabled = true;
-      button.style.cursor = "not-allowed";
-    }
-    document.querySelector(".score").textContent = count;
+    // Update score display
+    score.textContent = count;
   }
 });
