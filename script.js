@@ -9,6 +9,7 @@ const score = document.querySelector(".score");
 const body = document.querySelector("body");
 const correctNumber = document.querySelector(".number");
 const bestScore = document.querySelector(".highscore");
+const fireWorks = document.querySelector(".pyro");
 
 // variables
 let number = Math.trunc(Math.random() * 100) + 1;
@@ -40,6 +41,7 @@ restart.addEventListener("click", function () {
   score.textContent = count;
   body.style.backgroundColor = "#222";
   correctNumber.textContent = "?";
+  fireWorks.style.display = "none";
 });
 // clicked button
 button.addEventListener("click", function () {
@@ -56,6 +58,7 @@ button.addEventListener("click", function () {
       bestScore.textContent = highscore;
     }
     body.style.backgroundColor = "#60b347";
+    fireWorks.style.display = "block";
     endGame();
   } else {
     hint.textContent = guess > number ? "Too high!" : "Too low!";
