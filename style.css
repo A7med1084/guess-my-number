@@ -109,7 +109,7 @@ main .myform .btn:active {
   background-color: #ffffffd5;
   height: 45px;
   width: 145px;
-  margin-top: -2.5px;
+  margin-top: 2.5px;
 }
 .right {
   display: flex;
