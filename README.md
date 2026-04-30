@@ -15,10 +15,14 @@ A simple and fun number guessing game built using HTML, CSS, and JavaScript.
 - CSS3
 - JavaScript (DOM manipulation)
 
+
 ## 🎮 How to Play
 1. Enter a number between 1 and 20
 2. Click the "Check" button
 3. Try to guess the correct number!
+
+## 🚀 Live Demo
+👉 https://a7med1084.github.io/guess-my-number/
 
 ## 👨‍💻 Author
 Ahmed Anwar
