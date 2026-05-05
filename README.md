@@ -2,6 +2,8 @@
 
 A simple and fun number guessing game built using HTML, CSS, and JavaScript.
 
+---
+
 ## 🚀 How it works
 - The game generates a random number between 1 and 20
 - The player tries to guess the number
@@ -10,16 +12,27 @@ A simple and fun number guessing game built using HTML, CSS, and JavaScript.
   - 📈 Too high
   - 🎉 Correct answer
 
+ ---
+
 ## 🛠️ Technologies Used
 - HTML5
 - CSS3
 - JavaScript (DOM manipulation)
 
+---
 
 ## 🎮 How to Play
 1. Enter a number between 1 and 20
 2. Click the "Check" button
 3. Try to guess the correct number!
+
+---
+
+## 📸 Preview
+![Preview 1](images/Guess-my-number-1.png)
+![Preview 2](images/Guess-my-number-2.png)
+
+---
 
 ## 🚀 Live Demo
 👉 https://a7med1084.github.io/guess-my-number/
