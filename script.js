@@ -30,21 +30,8 @@ const resetInput = function () {
   input.value = "";
   input.focus();
 };
-// restart button
-restart.addEventListener("click", function () {
-  number = Math.trunc(Math.random() * 100) + 1;
-  count = 20;
-  resetInput();
-  button.disabled = false;
-  button.style.cursor = "pointer";
-  hint.textContent = "Start guessing...";
-  score.textContent = count;
-  body.style.backgroundColor = "#222";
-  correctNumber.textContent = "?";
-  fireWorks.style.display = "none";
-});
-// clicked button
-button.addEventListener("click", function () {
+// guessing function
+const guessing = function () {
   input.focus();
   const guess = Number(input.value);
   if (!guess || guess < 1 || guess > 100) {
@@ -74,4 +61,23 @@ button.addEventListener("click", function () {
     // Update score display
     score.textContent = count;
   }
+};
+// restart button
+restart.addEventListener("click", function () {
+  number = Math.trunc(Math.random() * 100) + 1;
+  count = 20;
+  resetInput();
+  button.disabled = false;
+  button.style.cursor = "pointer";
+  hint.textContent = "Start guessing...";
+  score.textContent = count;
+  body.style.backgroundColor = "#222";
+  correctNumber.textContent = "?";
+  fireWorks.style.display = "none";
 });
+// clicked button
+button.addEventListener("click", guessing);
+// Enter's key
+document.addEventListener("keydown", (e) => {
+  if(e.key === "Enter") guessing();
+})
